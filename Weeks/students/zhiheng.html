@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c5fa437150eb5aa913e08442d8ef1647 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c5fa437150eb5aa913e08442d8ef1647" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c5fa437150eb5aa913e08442d8ef1647 = L.map(
+                "map_c5fa437150eb5aa913e08442d8ef1647",
+                {
+                    center: [35.833078390000004, 139.95580603333335],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 17,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3becc39d2e2826d0b5a8a57fdf47ab36 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var tile_layer_b5a26fdc5fb2d8ee091f38b4ccbc3562 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var tile_layer_6bfb84a30da0f2b3db26df984e8b1aab = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo4/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var tile_layer_66e12cf023fd3e4ff9aebab559079964 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo3/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var tile_layer_fbeca2b42032dd50985e17dee8f008ed = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo2/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var tile_layer_49b96666e2b3e14a9a5f9210aa5fc3db = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo1/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var tile_layer_f9fd7e9a086514a600a0a8c55d335d1e = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/ort_old10/{z}/{x}/{y}.png",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var layer_control_e29de9722f5ac09a8b522a67b499aac2 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_3becc39d2e2826d0b5a8a57fdf47ab36,
+                    "2007\u5e74\u4ee5\u964d" : tile_layer_b5a26fdc5fb2d8ee091f38b4ccbc3562,
+                    "1987\u5e74\uff5e1990\u5e74" : tile_layer_6bfb84a30da0f2b3db26df984e8b1aab,
+                    "1984\u5e74\uff5e1986\u5e74" : tile_layer_66e12cf023fd3e4ff9aebab559079964,
+                    "1979\u5e74\uff5e1983\u5e74" : tile_layer_fbeca2b42032dd50985e17dee8f008ed,
+                    "1974\u5e74\uff5e1978\u5e74" : tile_layer_49b96666e2b3e14a9a5f9210aa5fc3db,
+                    "1961\u5e74\uff5e1969\u5e74" : tile_layer_f9fd7e9a086514a600a0a8c55d335d1e,
+                },
+                overlays :  {
+                },
+            };
+            L.control.layers(
+                layer_control_e29de9722f5ac09a8b522a67b499aac2.base_layers,
+                layer_control_e29de9722f5ac09a8b522a67b499aac2.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+            tile_layer_b5a26fdc5fb2d8ee091f38b4ccbc3562.remove();
+            tile_layer_6bfb84a30da0f2b3db26df984e8b1aab.remove();
+            tile_layer_66e12cf023fd3e4ff9aebab559079964.remove();
+            tile_layer_fbeca2b42032dd50985e17dee8f008ed.remove();
+            tile_layer_49b96666e2b3e14a9a5f9210aa5fc3db.remove();
+            tile_layer_f9fd7e9a086514a600a0a8c55d335d1e.remove();
+        
+    
+            var marker_28a329e7f80daf9a23d739b64352a6ad = L.marker(
+                [35.833049, 139.9550264],
+                {}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var icon_91e776c8023ec13750333d821f0dfa1d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_28a329e7f80daf9a23d739b64352a6ad.setIcon(icon_91e776c8023ec13750333d821f0dfa1d);
+        
+    
+        var popup_591892a2259cc05b047749d27ad06bb8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_71771036daea4f52c284ffa9085dabf4 = $(`<div id="html_71771036daea4f52c284ffa9085dabf4" style="width: 100.0%; height: 100.0%;"><div style="width:350px">校舎名の「かえで」には「楓の果実が2つの種子が密着した姿で、それぞれから翼が伸びる翼果であることから、仲間同士で切磋琢磨し合い、成長を遂げていくことができる人材の育成を行う」という願いが込められています。</div></div>`)[0];
+                popup_591892a2259cc05b047749d27ad06bb8.setContent(html_71771036daea4f52c284ffa9085dabf4);
+            
+        
+
+        marker_28a329e7f80daf9a23d739b64352a6ad.bindPopup(popup_591892a2259cc05b047749d27ad06bb8)
+        ;
+
+        
+    
+    
+            marker_28a329e7f80daf9a23d739b64352a6ad.bindTooltip(
+                `<div>
+                     校舎「かえで」
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c2fb5fbb4795556c33da7dd1b5dfd211 = L.marker(
+                [35.83220147, 139.9559064],
+                {}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var icon_18975ad389c11a6dbd96523a8eab0038 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c2fb5fbb4795556c33da7dd1b5dfd211.setIcon(icon_18975ad389c11a6dbd96523a8eab0038);
+        
+    
+        var popup_daa8c76daf514e871f6c0494f1459c01 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_42c0bba1d6794b8acc7e21f53ecd502c = $(`<div id="html_42c0bba1d6794b8acc7e21f53ecd502c" style="width: 100.0%; height: 100.0%;"><div style="width:350px">麗澤大学開学50周年記念事業の一環として2011年4月"森と共生するキャンパス"をコンセプトに建設された校舎「あすなろ」。このコンセプトが高く評価され、2012年度グッドデザイン賞を受賞しました。</div></div>`)[0];
+                popup_daa8c76daf514e871f6c0494f1459c01.setContent(html_42c0bba1d6794b8acc7e21f53ecd502c);
+            
+        
+
+        marker_c2fb5fbb4795556c33da7dd1b5dfd211.bindPopup(popup_daa8c76daf514e871f6c0494f1459c01)
+        ;
+
+        
+    
+    
+            marker_c2fb5fbb4795556c33da7dd1b5dfd211.bindTooltip(
+                `<div>
+                     校舎「あすなろ」
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_763f9b3603ae5407e4f500ba4f2bde08 = L.marker(
+                [35.83286248, 139.9559251],
+                {}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var icon_db27b757a9b11cd063d757f2a0f7e9b3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_763f9b3603ae5407e4f500ba4f2bde08.setIcon(icon_db27b757a9b11cd063d757f2a0f7e9b3);
+        
+    
+        var popup_a52b2c4ec87d15a156014245b6c640f3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b7a00431ee39cb3d7a26ec8cfa8c1e1e = $(`<div id="html_b7a00431ee39cb3d7a26ec8cfa8c1e1e" style="width: 100.0%; height: 100.0%;"><div style="width:350px">AVホール・CALL教室を持ち、授業開講時は8:50から19:00（閉講期間中は9:00から16:45）まで利用可能。開架式を採用しており、貴重書を除くほとんどの資料を、自由に閲覧することができます。<br><br> 開館時間は8：50～19：00（月～金）<br> ※授業閉講時は9：00～16：45まで開館（月～金）</div></div>`)[0];
+                popup_a52b2c4ec87d15a156014245b6c640f3.setContent(html_b7a00431ee39cb3d7a26ec8cfa8c1e1e);
+            
+        
+
+        marker_763f9b3603ae5407e4f500ba4f2bde08.bindPopup(popup_a52b2c4ec87d15a156014245b6c640f3)
+        ;
+
+        
+    
+    
+            marker_763f9b3603ae5407e4f500ba4f2bde08.bindTooltip(
+                `<div>
+                     図書館
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d4d33d149fb62be02877bb3c0c918504 = L.marker(
+                [35.83430366, 139.9549849],
+                {}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var icon_50c5791e933a7d5c81b23581a8d34b1f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_d4d33d149fb62be02877bb3c0c918504.setIcon(icon_50c5791e933a7d5c81b23581a8d34b1f);
+        
+    
+        var popup_fc67d4009952404514b435d45690bbee = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c80172dc4aed714a93e2b5a481f851bd = $(`<div id="html_c80172dc4aed714a93e2b5a481f851bd" style="width: 100.0%; height: 100.0%;"><div style="width:350px">2022年9月にリニューアルオープン。木目とグリーンを基調としたアットホームな雰囲気で、窓から見える「緑」の景色とも調和した作りとなっています。「1人席」や「ソファ席」、「ベンチ席」、「ミーティングルーム」等の様々な空間で過ごせるような工夫がされています。 2階にはカフェコーナーを設置し、焼き立てパン、淹れ立てコーヒー、サーティーワンアイスが購入できます。</div></div>`)[0];
+                popup_fc67d4009952404514b435d45690bbee.setContent(html_c80172dc4aed714a93e2b5a481f851bd);
+            
+        
+
+        marker_d4d33d149fb62be02877bb3c0c918504.bindPopup(popup_fc67d4009952404514b435d45690bbee)
+        ;
+
+        
+    
+    
+            marker_d4d33d149fb62be02877bb3c0c918504.bindTooltip(
+                `<div>
+                     学生会館「ひいらぎ」
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_50ac9fb15fd02c6ad100b52a2eb8f515 = L.marker(
+                [35.83193431, 139.9568801],
+                {}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var icon_d09442b11475faa33c01d59fd6523b44 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_50ac9fb15fd02c6ad100b52a2eb8f515.setIcon(icon_d09442b11475faa33c01d59fd6523b44);
+        
+    
+        var popup_623f5b820bf8734eaf765429f42f5041 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_59b80dbb08021ba1782026dba186f8eb = $(`<div id="html_59b80dbb08021ba1782026dba186f8eb" style="width: 100.0%; height: 100.0%;"><div style="width:350px">2006年（平成18年）2月竣工。大学院、研究センター、情報システム部、麗澤オープンカレッジが入る複合施設。教育活動、研究活動、社会貢献活動を積極的に推進し、これからの生涯学習への需要に的確に応えていくことを目的とした建物です。</div></div>`)[0];
+                popup_623f5b820bf8734eaf765429f42f5041.setContent(html_59b80dbb08021ba1782026dba186f8eb);
+            
+        
+
+        marker_50ac9fb15fd02c6ad100b52a2eb8f515.bindPopup(popup_623f5b820bf8734eaf765429f42f5041)
+        ;
+
+        
+    
+    
+            marker_50ac9fb15fd02c6ad100b52a2eb8f515.bindTooltip(
+                `<div>
+                     麗澤大学生涯教育プラザ
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_04f9f985385daa93c22571cf0e7b54e9 = L.marker(
+                [35.83411942, 139.9561133],
+                {}
+            ).addTo(map_c5fa437150eb5aa913e08442d8ef1647);
+        
+    
+            var icon_a21e50b8c1e849a5748384d50af6f182 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_04f9f985385daa93c22571cf0e7b54e9.setIcon(icon_a21e50b8c1e849a5748384d50af6f182);
+        
+    
+        var popup_8b010d04936dab24a874c10f1c97d7f6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d8318721c0c85a062030290f830e5e91 = $(`<div id="html_d8318721c0c85a062030290f830e5e91" style="width: 100.0%; height: 100.0%;"><div style="width:350px"><img src="https://www.reitaku-u.ac.jp/news/images/fb67d3c1fc242f1c5205423a598be848832b6c2b.jpg" width=100%> <p> さつきの花言葉は「節制」。強健で花付きがよく、毎年花が満開に咲きます。新しい学び舎で、強い信念を持って学問に励み、1人1人が満開の花を咲かせられるようにという想いが込められています。 </p></div></div>`)[0];
+                popup_8b010d04936dab24a874c10f1c97d7f6.setContent(html_d8318721c0c85a062030290f830e5e91);
+            
+        
+
+        marker_04f9f985385daa93c22571cf0e7b54e9.bindPopup(popup_8b010d04936dab24a874c10f1c97d7f6)
+        ;
+
+        
+    
+    
+            marker_04f9f985385daa93c22571cf0e7b54e9.bindTooltip(
+                `<div>
+                     校舎「さつき」
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

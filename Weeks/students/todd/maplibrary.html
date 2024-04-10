@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+
+@media only screen and (min-width : 800px) {
+	html { height: 100% }
+	body { height: 100%; margin: 0px; padding: 0px; background: white !important; color: #bbb; }
+	#container {position: fixed;background-color: white;left:0px; width: 264px; height: 106px}
+	#mapBody { float:center;height:100%; margin-left:300px; margin-top:-60px;visibility:hidden;overflow-y: hidden;}
+	#introBody { float:center; margin-left:550px; padding-top: 200px; font-size: 24px;}
+	#side_panel { position:absolute; width:280px; height: 100%; overflow:auto; float:left; padding-left:10px; padding-right:10px; cursor: pointer; cursor: hand; }
+	.tocmap {padding:10px !important;margin-bottom: 5px !important;}
+	.tocmap:hover {background:darkgray;}
+	#explainModal {padding: 20px;}
+	#title {cursor: text !!important;}
+	#results {top:15px;}
+}
+
+@media only screen and (max-width : 800px) {
+	#container {position: fixed;background-color: white;left:0px; width: 124px; height: 140px;top:-22px;}
+	#side_panel { position:absolute; width:150px; height: 100%; overflow:auto; float:left; padding-left:10px; padding-right:10px; cursor: pointer; cursor: hand; }
+	#mapBody { float:center;height:100%; margin-left:150px; margin-top:-128px;visibility:hidden;overflow-y: hidden;}
+	.btn-sm {margin-left: -15px !important;}
+	#introBody { float:center; margin-left:9em; padding-top: 200px; font-size: 24px;}
+}
+
+#kmlButton {position: absolute; top: 10px}
+#kmlexplain > div:nth-child(1) > div:nth-child(1) > h4:nth-child(1) {padding-left: 40px}
+
+
+</style>
+
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="http://cdn.bootcss.com/bootswatch/3.1.1-1/css/spacelab/bootstrap.min.css" rel="stylesheet">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="hc_maps.js"></script>
+
+<!-- bring in leaflet -->
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="https://www.hypercities.com/maplibrary/slider.css" />
+
+
+<script type="text/javascript">
+
+//global variables
+
+// declare namespace
+var hcMapLibrary = {};
+var theUrl;
+var hyperMap;
+var count = 0;
+var theCenterLat = []
+var theCenterLon = []
+var mapToggler;
+var legendCount = 0;
+var kmlButtonStatus;
+var theKMLink;
+var current_opacity = 1;
+//function that runs when the page loads
+hcMapLibrary.initialize = function() 
+{
+	// get maps
+	hcMapLibrary.getData();
+	mapSearch();
+	hcMapLibrary.transparencySlider();
+}
+
+
+String.prototype.contains = function(str, ignoreCase) {
+  return (ignoreCase ? this.toUpperCase() : this)
+    .indexOf(ignoreCase ? str.toUpperCase() : str) >= 0;
+};
+
+
+hcMapLibrary.toggleMap = function() {
+	if (!mapToggler) {
+		map.removeLayer(hyperMap);
+	}
+	else {
+		map.addLayer(hyperMap);
+	}
+	mapToggler = !mapToggler;
+}
+
+
+hcMapLibrary.kmlButton = function(theKMLink) {
+	if (!kmlButtonStatus) {
+		$('#sidemenu').css('visibility','visible');
+	}
+	else {
+		$('#sidemenu').css('visibility','hidden');
+	}
+	kmlButtonStatus = !kmlButtonStatus;
+}
+
+
+
+//get the maps
+hcMapLibrary.getData = function()
+{
+	// console.log(hc_maps)
+	$.each(hc_maps, function(i,item)
+	{
+		// $('#side_panel').append('<a onclick="hcMapLibrary.getMaps('+item+')" href="javascript:void(0)">'+item.id+'</a> ');
+		var searchFor = 'http://tiles.ats.ucla.edu/tiles/';
+		var searchFor1 = 'http://tiles.ats.ucla.edu/tiles/LosAngeles/';
+		var tileUrl = theKMLink = item.tileUrl
+		i=0;
+		if (tileUrl.indexOf(searchFor)>=0)
+		{
+			if (item.city = item.city){
+			$('#side_panel').append('<div class="tocmap well" id="map_'+item.id+'">'+item.mapping.dateFrom.date.substring(0,4)+' '+item.title+'</div class="tocmap"></label>');
+			// console.log(item);
+			$('#map_'+item.id).on("click", function(){hcMapLibrary.getMaps(item)});
+			$('#map_'+item.id).on("click", function(){hcMapLibrary.toggleMap()});
+			i+=1;			
+			}
+		}
+		else 
+		{
+			(console.log(item.tileUrl+' does not contain tiles.ats.ucla.edu'))
+		}
+	});
+}
+
+
+
+// show map data
+hcMapLibrary.getMaps = function(item)
+{
+	$('#mapBody').css('visibility','visible');
+	$('#introBody').css('visibility','hidden').css('padding-top','0px');
+	$('#maptitle').html('<h3><b>'+item.title+'</h3></b>');
+	$('#maptitleEn').html('<h4>'+item.titleEn+'</h4>');
+
+	// let's make sure the tile url ends with a / character
+	if (item.tileUrl.slice(-1) != '/'){
+		theUrl = item.tileUrl +'/';
+		console.log(theUrl);
+	}
+	else{
+		theUrl = item.tileUrl;
+	}
+
+	
+	// console.log('here is the tileURL: '+theUrl);
+	// console.log(item);
+	// console.log(item.mapping.neLat);
+	var theCenterLat1 = Number(item.mapping.neLat);
+	var theCenterLat2 = Number(item.mapping.swLat);	
+	while(theCenterLat.length > 0){theCenterLat.pop();}
+	while(theCenterLon.length > 0){theCenterLon.pop();}
+	theCenterLat.push(item.mapping.neLat)
+	theCenterLat.push(item.mapping.neLon);
+
+	theCenterLon.push(item.mapping.swLat)
+	theCenterLon.push(item.mapping.swLon)
+	// console.log(theCenterLon);
+	// console.log(theCenterLat);
+	// console.log(theCenterLon);
+	// remove the other layer before changing the map
+
+	if (count != 0){
+		map.removeLayer(hyperMap);
+		addtheMap();
+		// console.log('hello')
+	}
+	// $('#mapBody').append('<h4><button>'+theUrl+'</button></h4>').toggleClass('#kmlButton');
+	// console.log("made the button "+theUrl)	
+	addtheMap();
+	var neBounds = L.latLng(theCenterLat);
+	var swBounds = L.latLng(theCenterLon);
+	map.fitBounds([swBounds, neBounds]);
+	count++;
+	legendCount++;
+	hcMapLibrary.getMapModalInfo(item);
+	hyperMap.addtheMap();
+
+}
+
+
+hcMapLibrary.transparencySlider = function()
+{
+	var handle = document.getElementById('handle2'),
+		start,
+		startLeft;
+
+	document.onmousemove = function(e) {
+
+		if (!start) return;
+		// Adjust control
+		handle.style.left = Math.max(0, Math.min(190, startLeft + parseInt(e.clientX, 10) - start)) + 40 + 'px';
+		// Adjust opacity
+		var opacity = 1 - ((handle.offsetLeft-40) / 190);
+
+		current_opacity = opacity;
+
+		hyperMap.setOpacity(opacity);
+		// for(i in alllayers_map1)
+		// {
+		// 	if(i != 0)
+		// 	{
+		// 		alllayers_map1[i].setOpacity(opacity);
+		// 		alllayers_map2[i].setOpacity(opacity);
+		// 		alllayers_map3[i].setOpacity(opacity);
+		// 	}
+		// }
+
+		// map.parent.style.cursor = 'ns-resize';
+	}
+
+	handle.onmousedown = function(e) {
+		// Record initial positions
+		start = parseInt(e.clientX, 0);
+		startLeft = handle.offsetLeft - 40;
+		return false;
+	}
+
+	document.onmouseup = function(e) {
+		start = null;
+	}	
+}
+
+hcMapLibrary.setOpacity = function(val)
+{
+	var opacity
+	var this_opacity = current_opacity + val;
+	if(this_opacity>=1){ this_opacity = 1};
+	if(this_opacity<0){ this_opacity = 0};
+
+	current_opacity = this_opacity;
+	opacity = this_opacity;
+	hyperMap.setOpacity(opacity);
+	// for(i in alllayers_map1)
+	// {
+	// 	if(i != 0)
+	// 	{
+	// 		alllayers_map1[i].setOpacity(this_opacity);
+	// 		alllayers_map2[i].setOpacity(this_opacity);
+	// 		alllayers_map3[i].setOpacity(this_opacity);
+	// 	}
+	// }
+
+	// set the slider postion too
+	handle2.style.left=190-(this_opacity*190)+40+'px';
+}
+
+
+
+
+$(document).ready(function() {  
+    var stickyNavTop = $('.nav').offset().top;  
+      
+    var stickyNav = function(){  
+    var scrollTop = $(window).scrollTop();  
+           
+    if (scrollTop > stickyNavTop) {   
+        $('.nav').addClass('sticky');  
+    } else {  
+        $('.nav').removeClass('sticky');   
+    }  
+    };  
+      
+    stickyNav();  
+      
+    $(window).scroll(function() {  
+        stickyNav();  
+    });  
+});  
+
+</script>
+</head>
+<!-- body of the page with an onload to run the initialize function -->
+<body onload="hcMapLibrary.initialize()">
+
+
+
+<!-- Modal 1 -->
+     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="explainModal">
+          <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+			<table class="table table-hover">
+						<tr>
+							<td width="200"><h4><b>English Map Title</h4></b></td>
+							<td id="maptitleEn"></td>
+						</tr>
+						<tr>
+							<td><h4><b>KML Link<h4></b><input type="button" value="How to use?" class="btn-sm btn-success" data-toggle="modal" data-target="#kmlexplain"></td>
+							<td id="mapkmlLink"></td>
+						</tr>						
+						<tr>
+							<td><h4><b>City<h4></b></td>
+							<td id="mapcity"></td>
+						</tr>
+						<tr>
+			<!-- 				<td><h4><b>Map ID<h4></b></td>
+							<td id="mapId"></td> -->
+						</tr>
+						<tr>
+							<td><h4><b>Creator<h4></b></td>
+							<td id="mapcreator"></td>
+						</tr>
+						<tr>
+							<td><h4><b>Publisher<h4></b></td>
+							<td id="mappublisher"></td>
+						</tr>
+						<tr>
+							<td><h4><b>Date<h4></b></td>
+							<td id="mapdate"></td>
+						</tr>									
+						<tr>
+							<td><h4><b>Map Source<h4></b></td>
+							<td id="mapsource"></td>
+						</tr>											
+					</table>    
+        </div>
+      </div>
+    </div>
+
+<!-- Modal 2 -->
+     <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="kmlexplain">
+          <div class="modal-dialog modal-md">
+        <div class="modal-content">
+             <h4>To use a KML Network link in Google Earth you need to do the following:</h4>
+             <ol>
+	             <li>
+	             Highlight and then copy the link (Ctrl + C or Command + C)
+	             <img src="imgs/1.png" class="img-thumbnail">
+	             </li>
+	             <li>
+	             Open Google Earth
+	             </li>
+	             <li>
+	             Click on "Add Network Link"
+	             <img src="imgs/2.png" class="img-thumbnail">
+	             </li>
+	             <li>
+	             Paste the link
+	             <img src="imgs/3.png" class="img-thumbnail">
+	             </li>
+	             <li>
+	             Click "Ok"
+	             <img src="imgs/4.png" class="img-thumbnail">
+	             </li>
+	             <li>
+	             Double click the new network link layer to zoom to it in Google Earth.
+	             <img src="imgs/5.png" class="img-thumbnail">
+	             </li>
+	             <li>
+	             Done!
+	             <img src="imgs/6.png" class="img-thumbnail">
+	             </li>
+             </ol>            
+        </div>
+      </div>
+    </div>
+
+<!-- side panel div container -->
+<div id="side_panel">
+	<div id="container">
+	<a href="index.html"><h1 id="title">Map Library</h1></a>
+	<form>
+	    <div class="col-xs-8"><input type="text" class="form-control input-sm" name="search" id="search" placeholder="type to search" />
+		</div>
+	    <div class="col-xs-1"><input type="submit" class="btn-sm btn-danger" value="Reset" /></div>
+	</form>
+	</div>
+	<!-- <div id="results"> <span id="theNumber"></span></div> -->
+<br>	
+<br>	
+<br>	
+<br>	
+<br>	
+<br>	
+<div id="results"></div>
+	</div>
+	<div id="introBody">
+		Please click a city on the left to retrieve a map.
+	</div>
+	<div id="mapBody">
+		<br>
+				<div align="center"><h3><span id="maptitle"></span><h3></b>
+				</div></h3></span>
+		<span id='control-container2'>
+			<span onclick="hcMapLibrary.setOpacity(.1)" class="btn-sm btn-info time-control left-border-radius" style=""><span class="glyphicon glyphicon-minus-sign"></span></span>
+			<div id='control2'>
+				<span style="color: #aaa;padding-top:15px;line-height: 34px;">transparency</span>
+				<span id='handle2'></span>
+			</div>
+			<span onclick="hcMapLibrary.setOpacity(-.1)" class="btn-sm btn-info time-control right-border-radius" style=""><span class="glyphicon glyphicon-plus-sign"></span></span>
+		</span>
+		<div id="map" style="height:800px"></div>
+
+
+	</div>
+</div>
+<div id="sidemenu">
+</div>
+
+</body>
+<script>
+
+// show map data
+hcMapLibrary.getMapModalInfo = function(item)
+{
+	$('#mapBody').css('visibility','visible');
+	$('#introBody').css('visibility','hidden').css('padding-top','0px');
+	$('#maptitle').html('<h3><b>'+item.title+'</h3></b>');
+	$('#maptitleEn').html('<h4>'+item.titleEn+'</h4>');
+	if (item.title == 'Los Angeles USGS 1920 (OLD)')
+		{
+			$('#mapkmlLink').html('<h4>'+item.tileUrl+'/geviewer_nl.kml</h4><h5>Copy and paste network link to embed map into a geo-browser such as Google Earth.</h5>');
+		}
+	else if(item.title == 'Spanish and Mexican Rancho Land Grants (NEW)')
+		{
+			$('#mapkmlLink').html('<h4>'+item.tileUrl+'geviewer_nl.kml</h4><h5>Copy and paste network link to embed map into a geo-browser such as Google Earth.</h5>');
+		}		
+	else if(item.title == 'Spanish and Mexican Rancho Land Grants')
+		{
+			$('#mapkmlLink').html('<h4>'+item.tileUrl+'geviewer_nl.kml</h4><h5>Copy and paste network link to embed map into a geo-browser such as Google Earth.</h5>');
+		}	
+	else
+		{	
+			$('#mapkmlLink').html('<h4>'+theUrl+'doc.kml</h4><h5>Copy and paste network link to embed map into a geo-browser such as Google Earth.</h5>');
+		}
+	$('#mapcity').html('<h4>'+item.city+'</h4>');
+	// $('#mapId').html('<h4>'+item.id+'</h4>');
+	$('#mapcreator').html('<h4>'+item.creator+'</h4>');
+	$('#mappublisher').html('<h4>'+item.publisher+'</h4>');
+	$('#mapdate').html('<h4>'+item.mapping.dateFrom.date.substring(0,4)+'</h4>');
+	$('#mapsource').html('<h4>'+item.collectionSource+'</h4>');
+}
+
+
+function addLegend(){
+		if (legendCount == 0){
+		// let's add a legend
+		var legend = L.control({position: 'topleft'});
+		legend.onAdd = function (map) {
+		    var div = L.DomUtil.create('div', 'infolegend');
+			// innerHTMLcontent = innerHTMLcontentArray;
+			div.innerHTML = '<button style="align:center" class="btn btn-info" onclick="hcMapLibrary.toggleMap()">Map Toggle</button><br><br><button style="align:center" class="btn-sm btn-default" data-toggle="modal" data-target="#explainModal">Show Map Details</button>';
+			return div;			
+		};
+		legend.addTo(map);
+
+
+
+		// map.addControl(geocode);
+	}
+
+}
+
+function addKMLink(){
+		if (legendCount == 0){
+		// let's add a legend
+		var legend = L.control({position: 'topleft'});
+		legend.onAdd = function (map) {
+		    var div = L.DomUtil.create('div', 'infolegend');
+			// innerHTMLcontent = innerHTMLcontentArray;
+			div.innerHTML = '<button style="align:center" class="btn btn-info" onclick="hcMapLibrary.toggleMap()">Map Toggle</button>';
+						return div;
+		};
+		legend.addTo(map);
+		// map.addControl(geocode);
+	}
+
+}
+
+
+
+// this is the function that is used to search the table of contents
+function mapSearch(){
+	$("#search").on("keyup", function() {
+	   var key = this.value.toLowerCase();
+	    $(".tocmap").each(function() {
+	       var $this = $(this);
+	       $this.toggle($(this).text().toLowerCase().indexOf(key) >= 0);
+	       
+	    });
+	    var n = $('.tocmap:visible').size();
+	    // console.log(n);
+	});
+}
+
+// this is the function to reset the search
+// Some simple jQuery to remove the default search value when the user clicks the box
+  $(document).ready(function() {
+        $search_box = $("#search");
+ 
+        // If the user clicks the input box and the text is "type to search",
+        //    set it to blank
+        $search_box.click(function() {
+            if( $search_box.attr("value") == "type to search" ) {
+ 
+                // Set it to an empty string
+                $search_box.attr("value", "");
+            }
+        });
+  });
+
+
+// disables pressing enter which resets the search...
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+}
+
+document.onkeypress = stopRKey;
+
+var map = L.map('map').setView([52.5070525, 13.378478999999999], 13);
+var sat = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+var mpn = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+// https: also suppported.
+var esri = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+});
+map.addControl(new L.Control.Layers({'ESRI':esri,'Satellite':sat, 'Mapnik':mpn}
+		   ));
+
+
+function addtheMap(){
+	if(hyperMap){
+	map.removeLayer(hyperMap);}
+// https: also suppported.
+	L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+}).addTo(map);
+	hyperMap = L.tileLayer(theUrl+'{z}/{x}/{y}.png', {zIndex: 9999
+	}).addTo(map);
+	hcMapLibrary.toggleMap();
+	// console.log(theUrl);
+	addLegend();
+	$('.btn').trigger('click');
+}
+
+</script>
+</html>

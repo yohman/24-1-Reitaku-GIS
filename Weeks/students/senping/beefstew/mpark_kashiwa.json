@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "config": {
+    "mapState": {
+      "latitude": 35.86142717932563,
+      "longitude": 139.99332936349387,
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 0,
+      "isSplit": false,
+      "dragRotate": false,
+      "height": 600,
+      "width": 600
+    }
+  }
+}

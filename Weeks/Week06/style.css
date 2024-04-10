@@ -1,0 +1,47 @@
+    /* CSS styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+        width: 960px; /* Adjust the width to your preference */
+        margin: 0 auto; /* Center the container horizontally */
+      }
+      
+      .banner {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .columns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      
+      .column {
+        width: 48%; /* Adjust the column width to your preference */
+        background-color: #f2f2f2;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      
+      /* Additional CSS for responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          width: 90%; /* Adjust the width for smaller screens */
+        }
+        
+        .columns {
+          flex-direction: column;
+        }
+        
+        .column {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }

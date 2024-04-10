@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a633cd28813da750a1d62a29cdaebef8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a633cd28813da750a1d62a29cdaebef8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a633cd28813da750a1d62a29cdaebef8 = L.map(
+                "map_a633cd28813da750a1d62a29cdaebef8",
+                {
+                    center: [35.80943180444444, 139.8975187888889],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 17,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f65ecc94e8dfe479c6e4813cae2503fd = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var tile_layer_40b9802c1262d85f5a3158569e54bf7d = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var tile_layer_c919dccda85ddac7f985ed29e0dea6ea = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo4/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var tile_layer_3ffd56b84983f2b73fc8c767292c5a7e = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo3/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var tile_layer_70c2a1e88c98a5c52d9d3589a7caa7a8 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo2/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var tile_layer_e2fd93857d55693404fbe55cbc92c20e = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo1/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var tile_layer_93cbe2323b97643077260a8aac0639c5 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/ort_old10/{z}/{x}/{y}.png",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var layer_control_b1d00832df071b3a7fb58a5df302d0b9 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f65ecc94e8dfe479c6e4813cae2503fd,
+                    "2007\u5e74\u4ee5\u964d" : tile_layer_40b9802c1262d85f5a3158569e54bf7d,
+                    "1987\u5e74\uff5e1990\u5e74" : tile_layer_c919dccda85ddac7f985ed29e0dea6ea,
+                    "1984\u5e74\uff5e1986\u5e74" : tile_layer_3ffd56b84983f2b73fc8c767292c5a7e,
+                    "1979\u5e74\uff5e1983\u5e74" : tile_layer_70c2a1e88c98a5c52d9d3589a7caa7a8,
+                    "1974\u5e74\uff5e1978\u5e74" : tile_layer_e2fd93857d55693404fbe55cbc92c20e,
+                    "1961\u5e74\uff5e1969\u5e74" : tile_layer_93cbe2323b97643077260a8aac0639c5,
+                },
+                overlays :  {
+                },
+            };
+            L.control.layers(
+                layer_control_b1d00832df071b3a7fb58a5df302d0b9.base_layers,
+                layer_control_b1d00832df071b3a7fb58a5df302d0b9.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+            tile_layer_40b9802c1262d85f5a3158569e54bf7d.remove();
+            tile_layer_c919dccda85ddac7f985ed29e0dea6ea.remove();
+            tile_layer_3ffd56b84983f2b73fc8c767292c5a7e.remove();
+            tile_layer_70c2a1e88c98a5c52d9d3589a7caa7a8.remove();
+            tile_layer_e2fd93857d55693404fbe55cbc92c20e.remove();
+            tile_layer_93cbe2323b97643077260a8aac0639c5.remove();
+        
+    
+            var marker_120b00a6777111967398b809ed865e98 = L.marker(
+                [35.83387498, 139.9552044],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_2d2aa15c9a8506b34e881a519dcd3e3e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_120b00a6777111967398b809ed865e98.setIcon(icon_2d2aa15c9a8506b34e881a519dcd3e3e);
+        
+    
+        var popup_8a16c3a66ca3d4ec49c5a9f70aa25af6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ecbe1aadea29cfbd99301209fb221578 = $(`<div id="html_ecbe1aadea29cfbd99301209fb221578" style="width: 100.0%; height: 100.0%;"><div style="width:350px">minamikashiwa</div></div>`)[0];
+                popup_8a16c3a66ca3d4ec49c5a9f70aa25af6.setContent(html_ecbe1aadea29cfbd99301209fb221578);
+            
+        
+
+        marker_120b00a6777111967398b809ed865e98.bindPopup(popup_8a16c3a66ca3d4ec49c5a9f70aa25af6)
+        ;
+
+        
+    
+    
+            marker_120b00a6777111967398b809ed865e98.bindTooltip(
+                `<div>
+                     Reitaku
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_66c679762ce9a4d9df71b03806bed45e = L.marker(
+                [35.78579903, 139.3997549],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_7c06fc06eb63d8963e008a6eb056fc35 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_66c679762ce9a4d9df71b03806bed45e.setIcon(icon_7c06fc06eb63d8963e008a6eb056fc35);
+        
+    
+        var popup_5e78b08e7cb66d14d90e0261d6ecc3a3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31278c35ce7266d4cccd2b4eb715703f = $(`<div id="html_31278c35ce7266d4cccd2b4eb715703f" style="width: 100.0%; height: 100.0%;"><div style="width:350px">tokorozawa</div></div>`)[0];
+                popup_5e78b08e7cb66d14d90e0261d6ecc3a3.setContent(html_31278c35ce7266d4cccd2b4eb715703f);
+            
+        
+
+        marker_66c679762ce9a4d9df71b03806bed45e.bindPopup(popup_5e78b08e7cb66d14d90e0261d6ecc3a3)
+        ;
+
+        
+    
+    
+            marker_66c679762ce9a4d9df71b03806bed45e.bindTooltip(
+                `<div>
+                     Waseda
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c936cbac436fbbaaafeb220961772687 = L.marker(
+                [35.71884548, 139.7093697],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_a6d5a0a65d59e9dda76a49fb456c1b68 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "white", "prefix": "glyphicon"}
+            );
+            marker_c936cbac436fbbaaafeb220961772687.setIcon(icon_a6d5a0a65d59e9dda76a49fb456c1b68);
+        
+    
+        var popup_933a5ee4b3f8f8c08b1d0cca65b6b83c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5ebc8826c9eddca556e0ca46df20660a = $(`<div id="html_5ebc8826c9eddca556e0ca46df20660a" style="width: 100.0%; height: 100.0%;"><div style="width:350px">mejiro</div></div>`)[0];
+                popup_933a5ee4b3f8f8c08b1d0cca65b6b83c.setContent(html_5ebc8826c9eddca556e0ca46df20660a);
+            
+        
+
+        marker_c936cbac436fbbaaafeb220961772687.bindPopup(popup_933a5ee4b3f8f8c08b1d0cca65b6b83c)
+        ;
+
+        
+    
+    
+            marker_c936cbac436fbbaaafeb220961772687.bindTooltip(
+                `<div>
+                     Gakusyuin
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d0fc2427c2e9211e2640fec454015315 = L.marker(
+                [36.5146938, 140.6167605],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_5903491d8983bc8506887f6d96375291 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkpurple", "prefix": "glyphicon"}
+            );
+            marker_d0fc2427c2e9211e2640fec454015315.setIcon(icon_5903491d8983bc8506887f6d96375291);
+        
+    
+        var popup_00591bc3d3dce1270795b2a99299b3e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bb9c008bcc18bd9673d264cc1027039c = $(`<div id="html_bb9c008bcc18bd9673d264cc1027039c" style="width: 100.0%; height: 100.0%;"><div style="width:350px">omika</div></div>`)[0];
+                popup_00591bc3d3dce1270795b2a99299b3e7.setContent(html_bb9c008bcc18bd9673d264cc1027039c);
+            
+        
+
+        marker_d0fc2427c2e9211e2640fec454015315.bindPopup(popup_00591bc3d3dce1270795b2a99299b3e7)
+        ;
+
+        
+    
+    
+            marker_d0fc2427c2e9211e2640fec454015315.bindTooltip(
+                `<div>
+                     Ibarakichrist
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a43df9afdadce967d0b77fed4ceab007 = L.marker(
+                [35.70053516, 139.7415667],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_a03a7d5ce4a05d27f6c880d95201805d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_a43df9afdadce967d0b77fed4ceab007.setIcon(icon_a03a7d5ce4a05d27f6c880d95201805d);
+        
+    
+        var popup_399d5b69375f5b46d9c3d43db3294fc3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_36d197d37aab832d0c6a59651f2b2db9 = $(`<div id="html_36d197d37aab832d0c6a59651f2b2db9" style="width: 100.0%; height: 100.0%;"><div style="width:350px">ichigaya</div></div>`)[0];
+                popup_399d5b69375f5b46d9c3d43db3294fc3.setContent(html_36d197d37aab832d0c6a59651f2b2db9);
+            
+        
+
+        marker_a43df9afdadce967d0b77fed4ceab007.bindPopup(popup_399d5b69375f5b46d9c3d43db3294fc3)
+        ;
+
+        
+    
+    
+            marker_a43df9afdadce967d0b77fed4ceab007.bindTooltip(
+                `<div>
+                     Housei
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_96966ae6538a27f68f90c7510a3ab2cb = L.marker(
+                [35.62658069, 140.1015734],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_323673c6f43b10158595dc831d8251e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_96966ae6538a27f68f90c7510a3ab2cb.setIcon(icon_323673c6f43b10158595dc831d8251e7);
+        
+    
+        var popup_40a7922d6e5a8239af691780c13912c1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0d63a46ba4a37d3e591d8434718c53c9 = $(`<div id="html_0d63a46ba4a37d3e591d8434718c53c9" style="width: 100.0%; height: 100.0%;"><div style="width:350px">nishichiba</div></div>`)[0];
+                popup_40a7922d6e5a8239af691780c13912c1.setContent(html_0d63a46ba4a37d3e591d8434718c53c9);
+            
+        
+
+        marker_96966ae6538a27f68f90c7510a3ab2cb.bindPopup(popup_40a7922d6e5a8239af691780c13912c1)
+        ;
+
+        
+    
+    
+            marker_96966ae6538a27f68f90c7510a3ab2cb.bindTooltip(
+                `<div>
+                     Chiba
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a8dc8d68f73ebe31233ec8539fa89d6e = L.marker(
+                [35.63126032, 139.7866455],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_f21ac1ff6f2ad6ded3d89638de7e8527 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_a8dc8d68f73ebe31233ec8539fa89d6e.setIcon(icon_f21ac1ff6f2ad6ded3d89638de7e8527);
+        
+    
+        var popup_a158b85b76e5b2699e09ac7d8f6534ba = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4689f99c5a18fec82d826b8ccfd27438 = $(`<div id="html_4689f99c5a18fec82d826b8ccfd27438" style="width: 100.0%; height: 100.0%;"><div style="width:350px">ariake</div></div>`)[0];
+                popup_a158b85b76e5b2699e09ac7d8f6534ba.setContent(html_4689f99c5a18fec82d826b8ccfd27438);
+            
+        
+
+        marker_a8dc8d68f73ebe31233ec8539fa89d6e.bindPopup(popup_a158b85b76e5b2699e09ac7d8f6534ba)
+        ;
+
+        
+    
+    
+            marker_a8dc8d68f73ebe31233ec8539fa89d6e.bindTooltip(
+                `<div>
+                     Musashino
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_20bb9d922972189fb516b96b99cd21df = L.marker(
+                [35.78079625, 139.7156281],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_f507d1f17ee08b2f857e127d58feef7b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_20bb9d922972189fb516b96b99cd21df.setIcon(icon_f507d1f17ee08b2f857e127d58feef7b);
+        
+    
+        var popup_b89e8b29a51d065d869cf703d0c93fc3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fad869a901677056f969c057d61e43a7 = $(`<div id="html_fad869a901677056f969c057d61e43a7" style="width: 100.0%; height: 100.0%;"><div style="width:350px">akabanedai</div></div>`)[0];
+                popup_b89e8b29a51d065d869cf703d0c93fc3.setContent(html_fad869a901677056f969c057d61e43a7);
+            
+        
+
+        marker_20bb9d922972189fb516b96b99cd21df.bindPopup(popup_b89e8b29a51d065d869cf703d0c93fc3)
+        ;
+
+        
+    
+    
+            marker_20bb9d922972189fb516b96b99cd21df.bindTooltip(
+                `<div>
+                     Toyo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_14eff37c468952eef9a02e2ed821d99a = L.marker(
+                [35.69250053, 140.0511659],
+                {}
+            ).addTo(map_a633cd28813da750a1d62a29cdaebef8);
+        
+    
+            var icon_5ae4b0784dc262f806e74ef3e003f5d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_14eff37c468952eef9a02e2ed821d99a.setIcon(icon_5ae4b0784dc262f806e74ef3e003f5d3);
+        
+    
+        var popup_af7bf64019c6710e7e8df075349005e8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4484c8a227ef451fb229930633430113 = $(`<div id="html_4484c8a227ef451fb229930633430113" style="width: 100.0%; height: 100.0%;"><div style="width:350px">tsudanuma</div></div>`)[0];
+                popup_af7bf64019c6710e7e8df075349005e8.setContent(html_4484c8a227ef451fb229930633430113);
+            
+        
+
+        marker_14eff37c468952eef9a02e2ed821d99a.bindPopup(popup_af7bf64019c6710e7e8df075349005e8)
+        ;
+
+        
+    
+    
+            marker_14eff37c468952eef9a02e2ed821d99a.bindTooltip(
+                `<div>
+                     Nihon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b667129a1b47fe64c39a148c53e6e941 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b667129a1b47fe64c39a148c53e6e941" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b667129a1b47fe64c39a148c53e6e941 = L.map(
+                "map_b667129a1b47fe64c39a148c53e6e941",
+                {
+                    center: [34.3853, 132.4553],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_67b1a809389a7c2a4bd60fcbf2c3084a = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/ort_USA10/{z}/{x}/{y}.png",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var marker_629d68770896ff8653153a7e89b52270 = L.marker(
+                [34.3853, 132.4553],
+                {}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var icon_2f326283a36b8cfa758a2681d7ddab82 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_629d68770896ff8653153a7e89b52270.setIcon(icon_2f326283a36b8cfa758a2681d7ddab82);
+        
+    
+        var popup_d175a7a622653a26ea80bb293112903e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8a741bd42cb98ea7133daaac0e7840e6 = $(`<div id="html_8a741bd42cb98ea7133daaac0e7840e6" style="width: 100.0%; height: 100.0%;">Hiroshima</div>`)[0];
+                popup_d175a7a622653a26ea80bb293112903e.setContent(html_8a741bd42cb98ea7133daaac0e7840e6);
+            
+        
+
+        marker_629d68770896ff8653153a7e89b52270.bindPopup(popup_d175a7a622653a26ea80bb293112903e)
+        ;
+
+        
+    
+    
+            var tile_layer_2dbf759521e2c0c60f0ee1932fd3ab98 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var tile_layer_1a62a66c0f36cd5d38049664d570a572 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo4/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var tile_layer_4fa9394daebff58ec4913564227138cb = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo3/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var tile_layer_28d9d538468dc1118b44c8d007c99650 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo2/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var tile_layer_f194752bc027b4a8c9649a8eb493bc88 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/gazo1/{z}/{x}/{y}.jpg",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var tile_layer_be444c3191046c41eeba1c16cc51f038 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/ort_old10/{z}/{x}/{y}.png",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var tile_layer_e0f4f61add1aab5529272f28c99c4697 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/ort_USA10/{z}/{x}/{y}.png",
+                {"attribution": "\u56fd\u571f\u5730\u7406\u9662", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+        
+    
+            var layer_control_e25346cb9880a6b6904dac097b8e1f43 = {
+                base_layers : {
+                    "https://cyberjapandata.gsi.go.jp/xyz/ort_usa10/{z}/{x}/{y}.png" : tile_layer_67b1a809389a7c2a4bd60fcbf2c3084a,
+                    "2007\u5e74\u4ee5\u964d" : tile_layer_2dbf759521e2c0c60f0ee1932fd3ab98,
+                    "1987\u5e74" : tile_layer_1a62a66c0f36cd5d38049664d570a572,
+                    "1984\u5e74" : tile_layer_4fa9394daebff58ec4913564227138cb,
+                    "1979\u5e74" : tile_layer_28d9d538468dc1118b44c8d007c99650,
+                    "1974\u5e74" : tile_layer_f194752bc027b4a8c9649a8eb493bc88,
+                    "1961\u5e74" : tile_layer_be444c3191046c41eeba1c16cc51f038,
+                    "1945\u5e74" : tile_layer_e0f4f61add1aab5529272f28c99c4697,
+                },
+                overlays :  {
+                },
+            };
+            L.control.layers(
+                layer_control_e25346cb9880a6b6904dac097b8e1f43.base_layers,
+                layer_control_e25346cb9880a6b6904dac097b8e1f43.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_b667129a1b47fe64c39a148c53e6e941);
+            tile_layer_2dbf759521e2c0c60f0ee1932fd3ab98.remove();
+            tile_layer_1a62a66c0f36cd5d38049664d570a572.remove();
+            tile_layer_4fa9394daebff58ec4913564227138cb.remove();
+            tile_layer_28d9d538468dc1118b44c8d007c99650.remove();
+            tile_layer_f194752bc027b4a8c9649a8eb493bc88.remove();
+            tile_layer_be444c3191046c41eeba1c16cc51f038.remove();
+            tile_layer_e0f4f61add1aab5529272f28c99c4697.remove();
+        
+</script>
+</html>

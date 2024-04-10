@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>フィリピン不動産投資／路線図（※計画含む）</name>
+    <description>フィリピンの路線マップです。計画時点のものも含むため、確定された情報ではありません。正確性は保証しないのでご注意ください。</description>
+    <NetworkLink>
+      <name>フィリピン不動産投資／路線図（※計画含む）</name>
+      <Link>
+        <href><![CDATA[https://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1UwQTXgKQTRk6Hv3ZCjEoF0xt-RFbZhU]]></href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>

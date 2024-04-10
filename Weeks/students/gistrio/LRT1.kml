@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Folder>
+	<name>LRT-1号線</name>
+	<Placemark>
+		<name>LRT-1号線</name>
+		<styleUrl>#line-87CEAC-7000-nodesc</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+				121.021101,14.657605,0 121.004067,14.657459,0 120.983894,14.654367,0 120.983572,14.644413,0 120.982361,14.636093,0 120.981422,14.630586,0 120.982903,14.622638,0 120.982736,14.616756,0 120.98249,14.611177,0 120.982038,14.605454,0 120.98133,14.599,0 120.981633,14.592752,0 120.984621,14.58255,0 120.988069,14.576545,0 120.99156,14.5703,0 120.99485,14.56333,0 120.997158,14.554236,0 120.998614,14.547748,0 121.000672,14.538714,0 120.99835,14.53423,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>North Triangle Common Station</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>121.030908,14.655162,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Roosevelt</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>121.021101,14.657605,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Balintawak</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>121.004067,14.657459,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Monumento</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.983894,14.654367,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>5th Avenue</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.983572,14.644413,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>R.Papa</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.982361,14.636093,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Abad Santos</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.981422,14.630586,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Blumentritt</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.982903,14.622638,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Tayuman</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.982736,14.616756,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Bambang</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.98249,14.611177,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Doroteo Jose</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.982038,14.605454,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Carriedo</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.98133,14.599,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Central Terminal</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.981633,14.592752,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>United Nations</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.984621,14.58255,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Pedro Gil</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.988069,14.576545,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Quirino</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.99156,14.5703,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Vito Cruz</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.99485,14.56333,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Gil Puyat</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.997158,14.554236,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Libertad</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.998614,14.547748,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>EDSA</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>121.000672,14.538714,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Baclaran</name>
+		<styleUrl>#icon-1716-097138-nodesc</styleUrl>
+		<Point>
+			<coordinates>120.99835,14.53423,0</coordinates>
+		</Point>
+	</Placemark>
+</Folder>
+</kml>
